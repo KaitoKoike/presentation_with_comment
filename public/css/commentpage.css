@@ -1,0 +1,30 @@
+.comment-container{
+    width:100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.name{
+    width:auto;
+    height:auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.message{
+    width:auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.send{
+    width:auto;
+    height:auto;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}

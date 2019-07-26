@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Eco-system Presentation</title>
+    <link rel="stylesheet" type="text/css" href="css/presentation.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/6.3.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/6.3.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/6.3.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+
+      <presentation class="presentation">
+      <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSWgIO1hMheaLawMn0pex54ss0A0y88a93kUxI3SeDrdFFl5o7Y2atLOyYptHmk8A/embed?start=false&loop=false&delayms=30000" frameborder="0" width="1040" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+      </presentation >
+
+      <comments class="comments">
+      <div class="header">
+        <p>comments</p>
+      </div>
+      <ul id="comments-list" class="comments-list"></ul>
+      </comments>
+    </div>
+
+    <div class="comment-container">
+        <p>Hi please send us a comment and question!!</p>
+        <div class="name">
+        <input id="name"  placeholder="name">
+        </div>
+        <div class="message">
+        <input id="message" placeholder="message">
+        </div>
+        <div class="send">
+        <button id="send">Send</button>
+        </div>
+    </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="config/FirebaseConfig.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+      // Your web app's Firebase configuration
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      var commentsRef = firebase.database().ref().child("comments");
+      commentsRef.on("child_added", function(snapshot){
+        var cmt = snapshot.val();
+        console.log(cmt.body);
+        $('<li >').append('<comment class="comment"><p>'+cmt.body+'</p></comment>').prependTo('#comments-list');
+      });
+
+      $("#send").click(function() {
+                // 新規メッセージを投稿
+                commentsRef.push({
+                    name: $('#name').val(),
+                    body: $('#message').val()
+                });
+                $("#message").val("");
+            });
+    </script>
+
+    
+  </body>
+</html>

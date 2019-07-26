@@ -1,0 +1,126 @@
+body {
+    background-color: #000;
+    height: 749px;
+    width: 100%;
+    color : #000;
+}
+
+.footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 100% ;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #000;
+}
+
+.presentation .iframe {
+    width: 100% ;
+    height: auto ;
+}
+
+.content .presentation {
+    width: 75%;
+    height: auto;
+    display: flex;
+    align-content: center;
+}
+.content .comments {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #000;
+    overflow-y:scroll;
+}
+
+.comments .comments-list {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 15px 1.5em 0;
+    padding: 7px 10px;
+    width: 95%;
+    height: 100%;
+    background-color: #000;
+}
+
+.comments .header p {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 20%;
+    color: #e0edff;
+}
+
+.comments-list .comment {
+    position: relative;
+    float: right;
+    margin: 1.5em 15px 1.5em 0;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+}
+
+
+  .comments-list .comment :before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-left: 15px solid #e0edff;
+  }
+  
+  .comments-list .comment p {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    text-align-last: left;
+    overflow-wrap: break-word;
+  }
+  
+  .comment-container{
+    width:100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.name{
+    width:auto;
+    height:auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.message{
+    width:auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.send{
+    width:auto;
+    height:auto;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
